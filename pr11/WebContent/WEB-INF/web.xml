@@ -52,15 +52,31 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/LogoutServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>CreateProfile</servlet-name>
+    <servlet-class>com.spy.javaforlearn.CreateProfile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateProfile</servlet-name>
+    <url-pattern>/CreateProfile</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>PassUpdate</servlet-name>
+    <servlet-class>com.jwt.servlet.PassUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PassUpdate</servlet-name>
+    <url-pattern>/PassUpdater</url-pattern>
+  </servlet-mapping>
   
-   <servlet>
-      <servlet-name>CreateProfile</servlet-name>
-      <servlet-class>com.spy.javaforlearn.CreateProfile</servlet-class>
- </servlet>
- <servlet-mapping>
-        <servlet-name>CreateProfile</servlet-name>
-        <url-pattern>/CreateProfile</url-pattern>
- </servlet-mapping>
+  <servlet>
+    <servlet-name>DeleteRecord</servlet-name>
+    <servlet-class>com.jwt.servlet.DeleteRecord</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteRecord</servlet-name>
+    <url-pattern>/Deleterecord</url-pattern>
+  </servlet-mapping>
   
   
   <resource-ref>

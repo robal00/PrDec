@@ -42,12 +42,12 @@ select * from data where userName = '<%=session.getAttribute("name")%>' ;
 		value="Generate new password" /></br>
 
 	<input class="button" type="submit"
-		onclick="location.href='/pr11/delete.jsp'"
-		value="PLACEHOLDER Delete password" /></br>
+		onclick="location.href='/pr11/deleteRecord.jsp'"
+		value="Delete password" /></br>
 
 	<input class="button" type="submit"
-		onclick="location.href='/pr11/pswchange.jsp'"
-		value="PLACEHOLDER change my password" /></br>
+		onclick="location.href='/pr11/passwordUpdate.jsp'"
+		value="Change my password" /></br>
 		
 		<input class="button" type="submit"
 		onclick="location.href='LogoutServlet'"

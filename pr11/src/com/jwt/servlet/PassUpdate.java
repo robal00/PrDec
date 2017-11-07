@@ -16,17 +16,16 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Updater
  */
-@WebServlet("/Updater")
-public class Updater extends HttpServlet {
+@WebServlet("/PassUpdate")
+public class PassUpdate extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
  
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
  
-        String n = request.getParameter("userName");
-        String p = request.getParameter("app");
-        String e = request.getParameter("appPassword");
+        String n=request.getParameter("username");  
+        String p=request.getParameter("userpass"); 
         
  
         try {
@@ -35,11 +34,11 @@ public class Updater extends HttpServlet {
                     "jdbc:mysql://localhost:3306/database1", "root", "kamilr00");
  
             PreparedStatement ps = con
-                    .prepareStatement("UPDATE data SET appPassword=? WHERE userName=? and app=?;");                   		;
+                    .prepareStatement("UPDATE users SET pass=? WHERE userName=? ;");                   		;
  
-           ps.setString(1, e);
+           ps.setString(1, p);
            ps.setString(2, n);
-           ps.setString(3, p);
+           
             
  
             int i = ps.executeUpdate();
@@ -50,12 +49,13 @@ public class Updater extends HttpServlet {
             out.print("<p style=\"color:green\">password updated</p>");  
             RequestDispatcher rd=request.getRequestDispatcher("pro.jsp");  
             rd.include(request,response);  }
-            
+           
             else{  
                 out.print("<p style=\"color:red\">Something went wrong</p>");  
                 RequestDispatcher rd=request.getRequestDispatcher("pro.jsp");  
                 rd.include(request,response);  
             }  
+            
  
         } catch (Exception e2) {
             System.out.println(e2);

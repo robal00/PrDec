@@ -14,10 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Updater
+ * Servlet implementation class DeleteRecord
  */
-@WebServlet("/Updater")
-public class Updater extends HttpServlet {
+@WebServlet("/DeleteRecord")
+public class DeleteRecord extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
  
@@ -26,7 +26,7 @@ public class Updater extends HttpServlet {
  
         String n = request.getParameter("userName");
         String p = request.getParameter("app");
-        String e = request.getParameter("appPassword");
+        
         
  
         try {
@@ -35,11 +35,11 @@ public class Updater extends HttpServlet {
                     "jdbc:mysql://localhost:3306/database1", "root", "kamilr00");
  
             PreparedStatement ps = con
-                    .prepareStatement("UPDATE data SET appPassword=? WHERE userName=? and app=?;");                   		;
+                    .prepareStatement("DELETE from data WHERE userName=? and app=?;");                   		;
  
-           ps.setString(1, e);
-           ps.setString(2, n);
-           ps.setString(3, p);
+           ps.setString(1, n);
+           ps.setString(2, p);
+          
             
  
             int i = ps.executeUpdate();
@@ -47,7 +47,7 @@ public class Updater extends HttpServlet {
             
 
            
-            out.print("<p style=\"color:green\">password updated</p>");  
+            out.print("<p style=\"color:green\">password deleted</p>");  
             RequestDispatcher rd=request.getRequestDispatcher("pro.jsp");  
             rd.include(request,response);  }
             
