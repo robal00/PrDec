@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+body {
+background : #f2f2f2;
+margin : 0;
+padding : 0;
+text-align:center;
+}
+
+.button {
+	background: #262626;
+	font-size: 100%;
+	border-style: solid;
+	width: 50%;
+	line-height: 200%;
+	float: center;
+	 border-radius: 15px;
+	 color: white;
+	 	margin: 1px:
+
+}
+.button:hover {
+    box-shadow: 0 12px 6px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	background-color: #4CAF50;
+}
+
+table {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table th, td {border: 1px solid orange;
+    padding: 10px;
+    text-align: left;
+
+}
+.center{
+	  vertical-align: middle;
+}
