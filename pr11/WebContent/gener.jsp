@@ -11,7 +11,7 @@
 <form action="generate" method="post">
  		
         Password length: <select name="passLenght">
-         <option value="4">4</option>
+        
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>

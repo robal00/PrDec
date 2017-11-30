@@ -82,32 +82,7 @@ public class Generator2 extends HttpServlet {
    	 
    	RequestDispatcher dispatcher = request.getRequestDispatcher("generatedPassword.jsp");
    	dispatcher.forward(request, response);
-   	/**
-		PrintWriter out = response.getWriter();
-		
-		//out.println("</html>");
-		out.println("<html>");
-		out.println("<head>");
-		out.println("<link rel=\"stylesheet\" href=\"style.css\" type=\"text/css\" />");
-		out.println("</head>");
-		out.println("<body>");
-		out.println("GENERATED PASSWORD: <br/>");
-		out.println(s);
-		out.println("<form action=\"register\" method=\"post\">");
-		out.println("userName:<br/><input type=\"text\" name=\"userName\" value=");
-		out.println(m);
-		out.println("><br/>");
-		out.println("app:<br/><input type=\"text\" name=\"app\" /><br/>");
-		out.println("appPassword:<br/><input type=\"text\" name=\"appPassword\" value=");
-		out.println(s);
-		out.println("><br/>");
-		out.println("<br/>");
-		out.println("<input class=\"button\" type=\"submit\" value=\"Submit\"/>");
-		
-		out.println("</form>");
-		out.println("</body>");
-		out.println("</html>");
-		**/
+   	
 	}
        // TODO Auto-generated constructor stub
    

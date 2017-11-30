@@ -32,27 +32,27 @@ public class LoginDao {
             status = rs.next();
 
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("Something went wrong");
         } finally {
             if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                	System.out.println("Something went wrong");
                 }
             }
             if (pst != null) {
                 try {
                     pst.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                	System.out.println("Something went wrong");
                 }
             }
             if (rs != null) {
                 try {
                     rs.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                	System.out.println("Something went wrong");
                 }
             }
         }

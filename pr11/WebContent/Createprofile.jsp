@@ -17,6 +17,17 @@
  
  <input type="Submit" class="button" value="Sign up">
  </form>
+<p>The password policy is:</p>
+
+    <p>At least 8 chars</p>
+
+    <p>Contains at least one digit</p>
+
+    <p>Contains at least one lower alpha char and one upper alpha char</p>
+
+   <p> Contains at least one char within a set of special chars (@#%$^ etc.)</p>
+
+   <p> Does not contain space, tab, etc.</p>
 
 </body>
 </html>

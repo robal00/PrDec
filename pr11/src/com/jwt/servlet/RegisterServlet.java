@@ -28,7 +28,11 @@ public class RegisterServlet extends HttpServlet {
         String p = request.getParameter("app");
         String e = request.getParameter("appPassword");
         
- 
+        if(p.matches("\\w*\\s+\\w*")){RequestDispatcher rd=request.getRequestDispatcher("generatedPassword.jsp"); 
+   	 out.print("space is not allowed, use underscore");
+   	 rd.include(request,response); }
+        else {
+        
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(
@@ -49,10 +53,12 @@ public class RegisterServlet extends HttpServlet {
             rd.include(request,response);  
  
         } catch (Exception e2) {
-            System.out.println(e2);
+        	RequestDispatcher rd=request.getRequestDispatcher("error.html");  
+            rd.include(request,response); 
         }
  
         out.close();
+    } 
     }
  
 

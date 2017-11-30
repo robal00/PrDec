@@ -58,7 +58,8 @@ public class Updater extends HttpServlet {
             }  
  
         } catch (Exception e2) {
-            System.out.println(e2);
+        	RequestDispatcher rd=request.getRequestDispatcher("error.html");  
+            rd.include(request,response); 
         }
  
         out.close();

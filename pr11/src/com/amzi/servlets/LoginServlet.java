@@ -25,6 +25,13 @@ public class LoginServlet extends HttpServlet{
         String n=request.getParameter("username");  
         String p=request.getParameter("userpass"); 
         
+       
+        if(p.matches("\\w*\\s+\\w*") || n.matches("\\w*\\s+\\w*"))
+        {RequestDispatcher rd=request.getRequestDispatcher("login.jsp"); 
+      	 out.print("Sorry username or password error");
+      	 rd.include(request,response); }
+           else {
+        
         HttpSession session = request.getSession(false);
         if(session!=null)
         session.setAttribute("name", n);
@@ -41,5 +48,5 @@ public class LoginServlet extends HttpServlet{
 
         out.close();  
     }  
-} 
+} }
 
