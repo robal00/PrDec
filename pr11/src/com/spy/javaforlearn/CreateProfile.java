@@ -30,6 +30,11 @@ public class CreateProfile extends HttpServlet
 	       String n=request.getParameter("username");  
 	       String p=request.getParameter("userpass"); 
 	       
+	       if(p.length() > 7 && n.matches("\\w+@\\w+\\.\\w+")) {
+	    	  
+			
+	       
+	       
 	       
 	    Connection con = null;
 		PreparedStatement pstmt = null;
@@ -66,7 +71,7 @@ public class CreateProfile extends HttpServlet
 	     catch(Exception e)  
 		 {
 	    	 RequestDispatcher rd=request.getRequestDispatcher("index.jsp"); 
-	    	 out.print("Something goes wrong, Please try again");
+	    	 out.print("Something went wrong, Please try again");
 	    	 rd.include(request,response);  	 
 		 }
 		
@@ -94,5 +99,7 @@ public class CreateProfile extends HttpServlet
 			}
 		
 	         }	
-	 }
+	       }else {RequestDispatcher rd=request.getRequestDispatcher("Createprofile.jsp"); 
+	    	 out.print("incorrect password length or user name format");
+	    	 rd.include(request,response);  }}
   }

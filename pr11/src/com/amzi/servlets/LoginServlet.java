@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet{
         session.setAttribute("name", n);
 
         if(LoginDao.validate(n, p)){  
-            RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");  
+            RequestDispatcher rd=request.getRequestDispatcher("pro.jsp");  
             rd.forward(request,response);  
         }  
         else{  
