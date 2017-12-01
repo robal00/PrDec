@@ -1,3 +1,17 @@
+/*Class name: DeleteRecord.java
+ * date: 15/11/2017
+ * @reference:  http://www.javawebtutor.com/articles/servlets/servlet_db_example.php
+ * @author: Kamil Robakowski 16138520
+ * @comments: Parts of code in this class have been reused and sourced from website referenced.
+ * author modified:
+ * parameters required to connect to database to match development environment requirements
+ * messages to be sent in responses
+ * prepared statement for query to be executed in database
+ * exception handling (redirect to error page instead of printing stack trace)
+ * author added:
+ * code comments 
+ * GET method
+*/
 package com.jwt.servlet;
 
 import java.io.IOException;
@@ -18,65 +32,54 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/DeleteRecord")
 public class DeleteRecord extends HttpServlet {
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
- 
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
- 
-        String n = request.getParameter("userName");
-        String p = request.getParameter("app");
-        
-        
- 
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/database1", "root", "kamilr00");
- 
-            PreparedStatement ps = con
-                    .prepareStatement("DELETE from data WHERE userName=? and app=?;");                   		;
- 
-           ps.setString(1, n);
-           ps.setString(2, p);
-          
-            
- 
-            int i = ps.executeUpdate();
-            if (i > 0) {
-            
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-           
-            out.print("<p style=\"color:green\">password deleted</p>");  
-            RequestDispatcher rd=request.getRequestDispatcher("pro.jsp");  
-            rd.include(request,response);  }
-            
-            else{  
-                out.print("<p style=\"color:red\">Something went wrong</p>");  
-                RequestDispatcher rd=request.getRequestDispatcher("pro.jsp");  
-                rd.include(request,response);  
-            }  
- 
-        } catch (Exception e2) {
-        	RequestDispatcher rd=request.getRequestDispatcher("error.html");  
-            rd.include(request,response); 
-        }
- 
-        out.close();
-    }
- 
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		// receive strings from form in jsp
+		String n = request.getParameter("userName");
+		String p = request.getParameter("app");
 
+		try {
+			// connecting to database
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/database1", "root", "kamilr00");
+			// prepared statement for query to be executed in database
+			PreparedStatement ps = con.prepareStatement("DELETE from data WHERE userName=? and app=?;");
+			;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+			ps.setString(1, n);
+			ps.setString(2, p);
+
+			// execution of query in database
+			int i = ps.executeUpdate();
+			if (i > 0) {
+
+				// if query executed successfully redirect to pro.jsp and display message
+				out.print("<p style=\"color:green\">password deleted</p>");
+				RequestDispatcher rd = request.getRequestDispatcher("pro.jsp");
+				rd.include(request, response);
+			}
+
+			else {
+				// if query returns error redirect back to profile page with error message
+				out.print("<p style=\"color:red\">Something went wrong</p>");
+				RequestDispatcher rd = request.getRequestDispatcher("pro.jsp");
+				rd.include(request, response);
+			}
+
+		} catch (Exception e2) {
+			// if exception occurs redirect to error page
+			RequestDispatcher rd = request.getRequestDispatcher("error.html");
+			rd.include(request, response);
+		}
+
+		out.close();
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	
+	//redirect to index.jsp if GET method is called
+		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			
+			
+			request.getRequestDispatcher("index.jsp").include(request, response);
+		}
 }

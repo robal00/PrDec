@@ -1,3 +1,8 @@
+<!--
+file name: login.html
+author: Kamil Robakowski 16138520
+date: 15/11/2017
+-->
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <html>
@@ -7,6 +12,8 @@
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 <body>
+
+<!-- form to enter user name and password, entered values are passed to LoginServlet.java using post method -->
 	<form action="loginServlet" method="post">
 
 		user name</br> <input type="text" name="username" required="required" /></br>

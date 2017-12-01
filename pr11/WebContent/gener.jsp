@@ -1,13 +1,21 @@
+<!--
+file name: gener.jsp
+author: Kamil Robakowski 16138520
+date: 15/11/2017
+-->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>generate code</title>
+<title>Generate code</title>
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 <body>
+
+<!-- form to select password length, selected value is passed to Generator2.java using post method -->
 <form action="generate" method="post">
  		
         Password length: <select name="passLenght">
