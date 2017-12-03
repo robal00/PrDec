@@ -45,7 +45,7 @@ public class Updater extends HttpServlet {
 		try {
 			// connecting to database
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/database1", "root", "kamilr00");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/database1", "dbUser", "zaq1@wsx");
 			// prepared statement for query to be executed in database
 			PreparedStatement ps = con.prepareStatement("UPDATE data SET appPassword=? WHERE userName=? and app=?;");
 			;

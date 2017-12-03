@@ -29,8 +29,8 @@ public class LoginDao {
 		String url = "jdbc:mysql://localhost:3306/";
 		String dbName = "database1";
 		String driver = "com.mysql.jdbc.Driver";
-		String userName = "root";
-		String password = "kamilr00";
+		String userName = "dbUser";
+		String password = "zaq1@wsx";
 		
 		//connecting to database
 		try {

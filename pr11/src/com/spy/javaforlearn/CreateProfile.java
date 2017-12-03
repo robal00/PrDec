@@ -55,7 +55,7 @@ public class CreateProfile extends HttpServlet {
 				Class.forName("com.mysql.jdbc.Driver").newInstance();
 
 				// 2. Get the DB Connection via Driver
-				String dbUrl = "jdbc:mysql://localhost:3306/database1?user=root&password=kamilr00";
+				String dbUrl = "jdbc:mysql://localhost:3306/database1?user=dbUser&password=zaq1@wsx";
 				con = DriverManager.getConnection(dbUrl);
 
 				// 3. Issue SQL Queries via Connection
